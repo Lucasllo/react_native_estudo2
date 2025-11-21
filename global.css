@@ -1,0 +1,332 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+  Design System - App Institucional Christus
+  Identidade Visual Institucional 2025:
+  - Primary: #071D49 (PANTONE 2768) - Azul institucional escuro
+  - Secondary: #0085CA (Process Blue) - Navegação e realces
+  - Light: #B9D9EB (PANTONE 290) - Azul claro
+  - Accent: #FFC600 (PANTONE 7548) - Destaques e badges
+  - Error: #C8102E (PANTONE 186) - Erros e alertas
+  
+  All colors MUST be HSL for consistency.
+  WCAG 2.1 AA compliance: contrast ratio ≥ 4.5:1 (text), ≥ 3:1 (large text/icons).
+*/
+
+@layer base {
+  :root {
+    /* === BRAND COLORS === */
+    --brand-primary: 218 85% 16%;        /* #071D49 - PANTONE 2768 */
+    --brand-secondary: 200 100% 40%;     /* #0085CA - Process Blue */
+    --brand-light: 200 50% 82%;          /* #B9D9EB - PANTONE 290 */
+    --brand-accent: 47 100% 50%;         /* #FFC600 - PANTONE 7548 */
+    --brand-error: 349 77% 48%;          /* #C8102E - PANTONE 186 */
+    --brand-white: 0 0% 100%;            /* #FFFFFF */
+    
+    /* === LIGHT THEME === */
+    /* Backgrounds */
+    --background: 0 0% 100%;             /* bg/base: #FFFFFF */
+    --background-subtle: 210 60% 98%;    /* bg/subtle: #F7FAFD */
+    --surface-1: 218 85% 16% / 0.02;     /* surface/1: rgba(7,29,73,0.02) */
+    --surface-2: 218 85% 16% / 0.04;     /* surface/2: rgba(7,29,73,0.04) */
+    --surface-3: 218 85% 16% / 0.06;     /* surface/3: rgba(7,29,73,0.06) */
+    
+    /* Text */
+    --foreground: 218 85% 16%;           /* text/primary: #071D49 */
+    --foreground-secondary: 218 49% 30%; /* text/secondary: #294270 */
+    --foreground-invert: 0 0% 100%;      /* text/invert: #FFFFFF */
+    
+    /* Primary Actions */
+    --primary: 218 85% 16%;              /* action/primary/bg: #071D49 */
+    --primary-foreground: 0 0% 100%;     /* action/primary/text: #FFFFFF */
+    --primary-hover: 218 82% 22%;        /* action/primary/hover: #0B2A62 */
+    --primary-pressed: 218 86% 12%;      /* action/primary/pressed: #041336 */
+    
+    /* Secondary Actions */
+    --secondary: 207 50% 93%;            /* action/secondary/hover-bg: #E6F0F8 */
+    --secondary-foreground: 218 85% 16%; /* action/secondary/text: #071D49 */
+    --secondary-border: 218 49% 30%;     /* action/secondary/border: #294270 */
+    
+    /* Tertiary Actions */
+    --tertiary: 200 100% 40%;            /* action/tertiary/text: #0085CA */
+    
+    /* Navigation */
+    --nav-bar: 218 85% 16%;              /* nav/bar/bg: #071D49 */
+    --nav-item: 0 0% 100%;               /* nav/item/text: #FFFFFF */
+    --nav-active: 200 100% 40%;          /* nav/item/active-indicator: #0085CA */
+    --nav-badge: 47 100% 50%;            /* nav/badge/bg: #FFC600 */
+    --nav-badge-text: 218 85% 16%;       /* nav/badge/text: #071D49 */
+    
+    /* Semantic Colors */
+    --info: 200 100% 40%;                /* semantic/info: #0085CA */
+    --info-bg: 203 71% 95%;              /* semantic/info/bg: #E6F4FB */
+    --success: 122 48% 34%;              /* semantic/success: #2E7D32 */
+    --success-bg: 125 33% 93%;           /* semantic/success/bg: #E7F3E8 */
+    --warning: 47 100% 50%;              /* semantic/warning: #FFC600 */
+    --warning-bg: 48 100% 92%;           /* semantic/warning/bg: #FFF8D9 */
+    --destructive: 349 77% 48%;          /* semantic/error: #C8102E */
+    --destructive-foreground: 0 0% 100%; /* error text: #FFFFFF */
+    --destructive-bg: 350 79% 94%;       /* semantic/error/bg: #FDE6EA */
+    
+    /* UI Elements */
+    --input: 213 38% 90%;                /* input border */
+    --ring: 200 100% 40%;                /* focus/ring: #0085CA */
+    --overlay-scrim: 218 85% 16% / 0.48; /* overlay/scrim: rgba(7,29,73,0.48) */
+    
+    /* Cards & Popovers */
+    --card: 0 0% 100%;
+    --card-foreground: 218 85% 16%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 218 85% 16%;
+    
+    /* Muted (for disabled states) */
+    --muted: 213 38% 90%;
+    --muted-foreground: 218 49% 30%;
+    
+    /* Accent (for highlights) */
+    --accent: 47 100% 50%;               /* #FFC600 */
+    --accent-foreground: 218 85% 16%;    /* #071D49 on yellow */
+    
+    /* Avatar Fallback */
+    --avatar-fallback-bg: 210 60% 98%;   /* #F7FAFD - Background subtle (neutro) */
+    --avatar-fallback-text: 218 85% 16%; /* #071D49 - Primary (azul institucional) */
+    
+    --radius: 8px;
+    
+    /* Sidebar */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 218 85% 16%;
+    --sidebar-primary: 218 85% 16%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 207 50% 93%;
+    --sidebar-accent-foreground: 218 85% 16%;
+    --sidebar-border: 213 38% 90%;
+    --sidebar-ring: 200 100% 40%;
+  }
+
+
+  /* Manual dark class override (for future toggle if needed) */
+  .dark {
+    --background: 220 50% 9%;
+    --background-subtle: 220 50% 12%;
+    --surface-1: 0 0% 0% / 0.12;
+    --surface-2: 0 0% 0% / 0.18;
+    --surface-3: 0 0% 0% / 0.24;
+    
+    --foreground: 218 44% 93%;
+    --foreground-secondary: 218 33% 79%;
+    --foreground-invert: 220 50% 9%;
+    
+    --primary: 200 100% 40%;
+    --primary-foreground: 220 50% 9%;
+    --primary-hover: 200 91% 35%;
+    --primary-pressed: 200 91% 24%;
+    
+    --secondary: 220 48% 18%;
+    --secondary-foreground: 200 50% 82%;
+    --secondary-border: 220 30% 41%;
+    
+    --tertiary: 200 50% 82%;
+    
+    --nav-bar: 220 50% 9%;
+    --nav-item: 200 50% 82%;
+    --nav-active: 200 100% 40%;
+    --nav-badge: 47 100% 50%;
+    --nav-badge-text: 218 85% 16%;
+    
+    --info: 200 71% 65%;
+    --info-bg: 204 63% 15%;
+    --success: 118 53% 65%;
+    --success-bg: 120 48% 14%;
+    --warning: 47 100% 50%;
+    --warning-bg: 48 100% 9%;
+    --destructive: 356 100% 67%;
+    --destructive-foreground: 0 0% 100%;
+    --destructive-bg: 352 64% 14%;
+    
+    --border: 220 42% 23%;
+    --input: 220 42% 23%;
+    --ring: 200 100% 40%;
+    --overlay-scrim: 0 0% 0% / 0.48;
+    
+    --card: 220 50% 12%;
+    --card-foreground: 218 44% 93%;
+    --popover: 220 50% 12%;
+    --popover-foreground: 218 44% 93%;
+    
+    --muted: 220 42% 23%;
+    --muted-foreground: 218 33% 79%;
+    
+    --accent: 47 100% 50%;
+    --accent-foreground: 218 85% 16%;
+    
+    --sidebar-background: 220 50% 9%;
+    --sidebar-foreground: 218 44% 93%;
+    --sidebar-primary: 200 100% 40%;
+    --sidebar-primary-foreground: 220 50% 9%;
+    --sidebar-accent: 220 48% 18%;
+    --sidebar-accent-foreground: 200 50% 82%;
+    --sidebar-border: 220 42% 23%;
+    --sidebar-ring: 200 100% 40%;
+  }
+  
+  html, body {
+     overscroll-behavior-y: contain;
+     -webkit-overflow-scrolling: touch;
+   }
+
+   [data-scroll-container] {
+     -webkit-overflow-scrolling: touch;
+     overscroll-behavior-y: contain;
+     transform: translateZ(0);
+     will-change: scroll-position;
+   }
+}
+
+/* ===== Ocultar scrollbar mantendo scroll funcional ===== */
+@layer utilities {
+  .scrollbar-hide {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+    scroll-behavior: smooth; /* Scroll suave para melhor UX */
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Opera */
+  }
+}
+
+/* ===== SAFE AREA INSETS (iOS/iPadOS) ===== */
+.safe-area-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.safe-area-left {
+  padding-left: env(safe-area-inset-left);
+}
+
+.safe-area-right {
+  padding-right: env(safe-area-inset-right);
+}
+
+/* ===== ADAPTIVE HEADER (iPad/iPhone) ===== */
+.header-with-safe-area {
+  padding-top: max(0.75rem, env(safe-area-inset-top));
+  padding-bottom: 0.75rem;
+}
+
+/* ===== ADAPTIVE BOTTOM NAV (iPad/iPhone) ===== */
+.bottom-nav-with-safe-area {
+  padding-bottom: max(0rem, env(safe-area-inset-bottom));
+}
+
+/* ===== CONTENT WITH SAFE AREAS ===== */
+.content-with-safe-areas {
+  padding-top: calc(4rem + env(safe-area-inset-top));
+  padding-bottom: calc(4rem + env(safe-area-inset-bottom));
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+/* ===== CONTENT LAYOUT (iOS-First) ===== */
+:root {
+  --header-height: 5rem; /* 80px (AppHeader h-20) */
+  --content-padding-top: 7rem; /* 112px (header + 32px gap) */
+  --content-padding-top-large: 8rem; /* 128px (header + 48px gap, para páginas especiais) */
+}
+
+/* ===== RESPONSIVE CONTAINER (iPad margins) ===== */
+.container-responsive {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 768px) {
+  .container-responsive {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.pt-header {
+  padding-top: calc(60px + env(safe-area-inset-top, 0px));
+}
+
+.pb-nav {
+  padding-bottom: calc(200px + env(safe-area-inset-bottom, 0px));
+}
+
+.h-content {
+  height: calc(
+    100vh 
+    - 5rem /* header: 80px */
+    - 4.5rem /* bottom nav: 72px */
+    - env(safe-area-inset-top, 0px) 
+    - env(safe-area-inset-bottom, 0px)
+  );
+}
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+
+html, body,
+#mensagens,
+#agenda-scroll,
+#box,
+* {
+  -ms-overflow-style: none; /* IE e Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+#mensagens::-webkit-scrollbar,
+#agenda-scroll::-webkit-scrollbar,
+#box::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: linear-gradient(135deg, 
+      hsl(var(--background)) 0%, 
+      hsl(225 20% 96%) 50%, 
+      hsl(225 15% 98%) 100%
+    );
+    background-attachment: fixed;
+  }
+
+  /* Accessibility: Respect user motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
